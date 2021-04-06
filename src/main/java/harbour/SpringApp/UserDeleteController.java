@@ -1,11 +1,11 @@
 package harbour.SpringApp;
 
-
+import harbour.SpringApp.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
@@ -14,35 +14,30 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Component;
 
 @Component
-@FxmlView("main-scene.fxml")
+@FxmlView("user-delete-scene.fxml")
 @RequiredArgsConstructor
-public class MainController {
+public class UserDeleteController {
 
     private final FxWeaver fxWeaver;
+
+    private final UserService userService;
 
     @FXML
     private AnchorPane pane;
 
     @FXML
-    private Button employeeButton;
-
-    @FXML
-    private Button roleButton;
-
-    @FXML
-    private Button userButton;
+    private TextField idField;
 
 
-    public void loadUserMainWindow(ActionEvent actionEvent) {
+    public void back(ActionEvent actionEvent) {
         fxWeaver.load(UserController.class).getController().show();
         hide(actionEvent);
     }
 
-    public void loadEmployeeMainWindow(ActionEvent actionEvent) {
+    public void delete(ActionEvent actionEvent) {
+        userService.remove(idField.getText());
     }
 
-    public void loadRoleMainWindow(ActionEvent actionEvent) {
-    }
 
     private void hide(ActionEvent actionEvent) {
         ((Node) actionEvent.getSource()).getScene().getWindow().hide();
@@ -53,5 +48,6 @@ public class MainController {
         stage.setScene(new Scene(pane));
         stage.show();
     }
+
 
 }

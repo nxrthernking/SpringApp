@@ -1,6 +1,5 @@
 package harbour.SpringApp;
 
-import harbour.SpringApp.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -17,33 +16,37 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
-
     private final FxWeaver fxWeaver;
-
-    private Stage stage;
 
     @FXML
     private AnchorPane userPane;
 
 
     public void show(){
-        this.stage = new Stage();
+        Stage stage = new Stage();
         stage.setScene(new Scene(userPane));
         stage.show();
     }
 
     public void addUser(ActionEvent actionEvent) {
+        fxWeaver.load(UserAddController.class).getController().show();
+        hide(actionEvent);
     }
 
     public void findUser(ActionEvent actionEvent) {
+        fxWeaver.load(UserFindController.class).getController().show();
+        hide(actionEvent);
     }
 
 
     public void removeUser(ActionEvent actionEvent) {
+        fxWeaver.load(UserDeleteController.class).getController().show();
+        hide(actionEvent);
     }
 
     public void findAllUser(ActionEvent actionEvent) {
+        fxWeaver.load(UserTableController.class).getController().show();
+        hide(actionEvent);
     }
 
     public void backToPreviousWindow(ActionEvent actionEvent) {
