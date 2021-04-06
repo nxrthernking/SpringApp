@@ -26,14 +26,10 @@ public class UserController {
     @FXML
     private AnchorPane userPane;
 
-    @FXML
-    private void initialize(){
+
+    public void show(){
         this.stage = new Stage();
         stage.setScene(new Scene(userPane));
-    }
-
-    
-    public void show(){
         stage.show();
     }
 
