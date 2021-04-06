@@ -39,9 +39,13 @@ public class MainController {
     }
 
     public void loadEmployeeMainWindow(ActionEvent actionEvent) {
+        fxWeaver.load(EmployeeController.class).getController().show();
+        hide(actionEvent);
     }
 
     public void loadRoleMainWindow(ActionEvent actionEvent) {
+        fxWeaver.load(RoleController.class).getController().show();
+        hide(actionEvent);
     }
 
     private void hide(ActionEvent actionEvent) {

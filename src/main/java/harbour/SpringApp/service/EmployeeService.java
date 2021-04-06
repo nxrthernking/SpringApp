@@ -1,31 +1,45 @@
 package harbour.SpringApp.service;
 
-import harbour.SpringApp.model.Employee;
+import harbour.SpringApp.mapper.EmployeeMapper;
+import harbour.SpringApp.model.dto.EmployeeDto;
 import harbour.SpringApp.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
 
-    public Optional<Employee> getById(Long id) {
-        return employeeRepository.findById(id);
+    private final EmployeeMapper mapper;
+
+    public EmployeeDto getById(String employeeId) {
+        return employeeRepository
+                .findById(parseToLong(employeeId))
+                .map(mapper::mapToEmployeeDto)
+                .orElseThrow();
     }
 
-    public List<Employee> getAll(){
-        return employeeRepository.findAll();
+    public List<EmployeeDto> getAll(){
+        return employeeRepository.findAll()
+                .stream()
+                .map(mapper::mapToEmployeeDto)
+                .collect(Collectors.toList());
     }
 
-    public void saveEmployee(Employee employee){
-        employeeRepository.save(employee);
+    public void saveEmployee(EmployeeDto employeeDto){
+        employeeRepository.save(mapper.mapToEmployee(employeeDto));
     }
 
-    public void remove(Long id){
-        employeeRepository.deleteById(id);
+    public void remove(String employeeId){
+        employeeRepository.deleteById(parseToLong(employeeId));
     }
+
+    private Long parseToLong(String value){
+        return Long.valueOf(value);
+    }
+
 }

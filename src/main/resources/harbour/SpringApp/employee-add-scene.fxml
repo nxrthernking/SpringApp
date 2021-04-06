@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="pane" prefHeight="314.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="harbour.SpringApp.EmployeeAddController">
+   <children>
+      <TextField fx:id="nameField" layoutX="107.0" layoutY="82.0" promptText="Имя" />
+      <TextField fx:id="surenameField" layoutX="107.0" layoutY="123.0" promptText="Фамилия" />
+      <Button layoutX="102.0" layoutY="264.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="25.0" prefWidth="76.0" text="Добавить" />
+      <Button layoutX="24.0" layoutY="33.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="76.0" text="Назад" />
+      <TextField fx:id="telephoneField" layoutX="107.0" layoutY="165.0" promptText="Номер телефона" />
+      <TextField fx:id="addressField" layoutX="107.0" layoutY="209.0" promptText="Адрес" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="pane" prefHeight="242.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="harbour.SpringApp.RoleDeleteController">
+   <children>
+      <Button layoutX="24.0" layoutY="34.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="77.0" text="Назад" />
+      <TextField fx:id="idField" focusTraversable="false" layoutX="69.0" layoutY="98.0" promptText="id" />
+      <Button layoutX="69.0" layoutY="147.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="77.0" text="Удалить" />
+   </children>
+</AnchorPane>
