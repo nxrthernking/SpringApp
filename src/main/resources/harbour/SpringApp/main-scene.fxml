@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="harbour.SpringApp.MainController">
+<AnchorPane fx:id="pane" prefHeight="319.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="harbour.SpringApp.MainController">
    <children>
-      <Button fx:id="button" layoutX="207.0" layoutY="188.0" mnemonicParsing="false" onAction="#pushButton" prefHeight="25.0" prefWidth="133.0" text="Button" />
-      <Label fx:id="label" layoutX="126.0" layoutY="96.0" prefHeight="53.0" prefWidth="358.0" text="Ничего" textAlignment="CENTER" />
+      <Button fx:id="userButton" layoutX="122.0" layoutY="79.0" mnemonicParsing="false" onAction="#loadUserMainWindow" prefHeight="25.0" prefWidth="106.0" text="Пользователи">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="employeeButton" layoutX="122.0" layoutY="126.0" mnemonicParsing="false" onAction="#loadEmployeeMainWindow" prefHeight="25.0" prefWidth="106.0" text="Сотрудники">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="roleButton" layoutX="122.0" layoutY="177.0" mnemonicParsing="false" onAction="#loadRoleMainWindow" prefHeight="25.0" prefWidth="106.0" text="Роли">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
