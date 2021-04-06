@@ -26,8 +26,6 @@ public class UserController {
     @FXML
     private AnchorPane userPane;
 
-
-
     @FXML
     private void initialize(){
         this.stage = new Stage();

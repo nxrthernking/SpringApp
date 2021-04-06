@@ -35,11 +35,6 @@ public class MainController {
     private Button userButton;
 
 
-    public void initialize(){
-        this.stage = new Stage();
-        stage.setScene(new Scene(pane));
-    }
-
     public void loadUserMainWindow(ActionEvent actionEvent) {
         fxWeaver.load(UserController.class).getController().show();
         hide(actionEvent);
@@ -55,7 +50,9 @@ public class MainController {
         ((Node) actionEvent.getSource()).getScene().getWindow().hide();
     }
 
-    public void show(){
+    public void show() {
+        this.stage = new Stage();
+        stage.setScene(new Scene(pane));
         stage.show();
     }
 
